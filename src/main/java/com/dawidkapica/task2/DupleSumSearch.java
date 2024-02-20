@@ -19,7 +19,7 @@ public class DupleSumSearch {
                 visitedVal.add(searchedValToSum);
                 int numberOfPairs = Integer.max(entry.getValue(), frequencyOfVal.get(searchedValToSum));
                 List<Duple<Integer, Integer>> listOfCopies = (Collections.nCopies(numberOfPairs,
-                        new Duple(
+                        new Duple<>(
                                 Integer.min(entry.getKey(), searchedValToSum),
                                 Integer.max(entry.getKey(), searchedValToSum))));
                 searchedPairs.addAll(listOfCopies);
@@ -30,12 +30,8 @@ public class DupleSumSearch {
 
     private Map<Integer, Integer> getFrequencyMap(List<Integer> inputList) {
         Map<Integer, Integer> frequencyOfVal = new HashMap<>();
-        inputList.stream().forEach(val -> {
-            Integer frequency = frequencyOfVal.get(val);
-            if (frequency != null)
-                frequencyOfVal.put(val, frequency + 1);
-            else
-                frequencyOfVal.put(val, 1);
+        inputList.forEach(val -> {
+            frequencyOfVal.merge(val, 1, Integer::sum);
         });
         return frequencyOfVal;
     }

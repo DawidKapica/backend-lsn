@@ -4,12 +4,11 @@ import java.util.Set;
 
 public class Vertex {
     Integer nodeValue;
-    Boolean visited = false;
-    Set<Vertex> connectedVertex;
+    Set<Vertex> connectedVertices;
 
-    public Vertex(Integer nodeValue, Set<Vertex> connectedVertex) {
+    public Vertex(Integer nodeValue, Set<Vertex> connectedVertices) {
         this.nodeValue = nodeValue;
-        this.connectedVertex = connectedVertex;
+        this.connectedVertices = connectedVertices;
     }
 
     public Integer getNodeValue() {
@@ -17,14 +16,6 @@ public class Vertex {
     }
 
     public Set<Vertex> getConnectedVertex() {
-        return connectedVertex;
-    }
-
-    public Boolean getVisited() {
-        return visited;
-    }
-
-    public void setVisited(Boolean visited) {
-        this.visited = visited;
+        return connectedVertices;
     }
 }
