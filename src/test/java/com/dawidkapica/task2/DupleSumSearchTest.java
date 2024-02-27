@@ -45,6 +45,13 @@ public class DupleSumSearchTest {
     }
 
     @Test
+    public void TwoSameNumberTest() {
+        List<Integer> testData = Arrays.asList(6, 6, 7, 7);
+
+        verifyIfDataWasCreatedCorrectly(testData, 4);
+    }
+
+    @Test
     public void EmptyListTest() {
         verifyIfDataWasCreatedCorrectly(new ArrayList<>(), 0);
     }
